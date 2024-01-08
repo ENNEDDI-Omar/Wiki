@@ -1,0 +1,17 @@
+{
+    "name": "myapp/wiki",
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Myapp\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "OmarENNEDDI",
+            "email": "enneddiomar@gmail.com"
+        }
+    ]
+}
