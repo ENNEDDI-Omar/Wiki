@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <section class="bg-white dark:bg-gray-900">
+        <div class="container flex flex-col items-center justify-center min-h-screen px-6 mx-auto">
+            <div class="flex justify-center mx-auto">
+                <img class="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt="">
+            </div>
+
+            <h1 class="mt-4 text-2xl font-semibold tracking-wide text-center text-gray-800 capitalize md:text-3xl dark:text-white">
+                welcome Back
+            </h1>
+
+            <div class="flex items-center mt-6">
+                <p class="text-gray-500 dark:text-gray-400">continue as</p>
+
+                <div class="flex items-center mx-2">
+                    <img class="object-cover w-8 h-8 mx-1 rounded-full" src="https://images.unsplash.com/photo-1628890923662-2cb23c2e0cfe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
+                    <span class="mx-1 text-gray-800 dark:text-white">Ana Williams...</span>
+                </div>
+
+                <button class="text-blue-500 dark:text-blue-400 focus:outline-none hover:underline">change</button>
+            </div>
+
+            <div class="w-full max-w-md mx-auto mt-6">
+                <form action="../../app/controller/AuthController.php" method="POST">
+                    <div>
+                        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email</label>
+                        <input type="email" name="Email" placeholder="entrez votre email" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                    </div>
+                    <div>
+                        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Password</label>
+                        <input type="password" name="password" placeholder="Enter votre password" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                    </div>
+
+                    <button type="submit" name="submit-in" class="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                        “Log-in”
+                    </button>
+
+                    <div class="mt-6 text-center">
+                        <a href="#" class="text-sm text-blue-500 hover:underline dark:text-blue-400">
+                            Don’t have an account yet? Sign up
+                        </a>
+                    </div>
+
+                    <p class="mt-6 text-gray-500 dark:text-gray-400">
+                        By clicking “Continue” above, you acknowledge that you have read and
+                        understood, and agree to Our <a href="#" class="text-gray-700 dark:text-white">Term & Conditions</a>
+                        and<a href="#" class="text-gray-700 dark:text-white"> Privacy Policy.</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

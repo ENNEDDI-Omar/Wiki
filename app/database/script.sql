@@ -24,8 +24,8 @@
  CREATE TABLE wiki (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     titre VARCHAR(255),
-    description VARCHAR(255),
-    contenu VARCHAR(255),
+    description TEXT,
+    contenu TEXT,
     date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     image VARCHAR(255),
     archiver BOOLEAN,
