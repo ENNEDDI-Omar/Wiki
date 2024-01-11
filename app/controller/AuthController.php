@@ -27,8 +27,8 @@ class AuthController{
             UserModel::registerUser($nom, $prenom, $email, $password, $upload_image, $roleId);
               header('location:../../views/auth/login.php');
            }
-
-
+        }else {
+            echo "Insertion Echoué";
         }
     }
 
