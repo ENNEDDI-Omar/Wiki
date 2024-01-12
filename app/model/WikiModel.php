@@ -101,9 +101,9 @@ class WikiModel
         $wiki=WikiDAO::getWikibyId($id);
         return $wiki;
     }
-    public static function createWiki($titre, $desciption, $contenu, $image, $date_creation, $archiver, $categorie_id, $user_id, $tags)
+    public static function createWiki($titre, $desciption, $contenu, $image,$archiver, $categorie_id, $user_id, $tags)
     {
-      WikiDAO::createWiki($titre, $desciption, $contenu, $date_creation, $image, $archiver, $categorie_id, $user_id, $tags);
+      WikiDAO::createWiki($titre, $desciption, $contenu,$image, $archiver, $categorie_id, $user_id, $tags);
     
     }
     public static function deleteWiki($id)

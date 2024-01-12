@@ -13,9 +13,7 @@ class TagController
             $tag = $_POST['tag'];
 
             TagModel::addTag($tag);
-            header('location: ../../views/user/dash.php');
-        }else {
-            echo "Erreur d'insertion de tag";
+            header('location: ../../views/admin/Admindash.php');
         }
     }
 
@@ -26,9 +24,7 @@ class TagController
             $NomTag = $_POST['tag'];
 
             TagModel::updateTag($id, $NomTag);
-            header('location: ../../views/user/dash.php');
-        }else {
-            echo "Erreur de l'update de tag";
+            header('location: ../../views/admin/Admindash.php');
         }
     }
     public static function deleteTag()
@@ -37,9 +33,7 @@ class TagController
             $id = base64_decode($_GET['id']);
 
             TagModel::deleteTag($id);
-            header('location: ../../views/user/dash.com');
-        }else {
-            echo "Erreur de Suppression";
+            header('location: ../../views/admin/Admindash.php');
         }
     }
     public static function showTags()
@@ -52,7 +46,8 @@ class TagController
 
 
 
-
+$tag = TagController::addTag();
+$dtag = TagController::deleteTag();
 
 
 

@@ -6,7 +6,6 @@ use Myapp\model\UserModel;
 
 require '../../vendor/autoload.php';
 
-session_start();
 
 class AuthController{
 
@@ -27,8 +26,6 @@ class AuthController{
             UserModel::registerUser($nom, $prenom, $email, $password, $upload_image, $roleId);
               header('location:../../views/auth/login.php');
            }
-        }else {
-            echo "Insertion Echoué";
         }
     }
 
@@ -64,12 +61,19 @@ class AuthController{
                 header("location:../../views/auth/signin.php");
             }
         }
+        
     }
+    public static function getUsers()
+        {
+           $users = UserModel::getAllUsers();
+           return $users;
+        }
 }
 
 $auth = new AuthController();
 $auth->registerUser();
 $auth->login();
+$auth= AuthController::getUsers();
 
 
 

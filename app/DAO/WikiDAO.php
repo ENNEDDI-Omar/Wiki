@@ -34,24 +34,16 @@ class WikiDAO
         return $result;
     }
 
-    public static function createWiki($titre, $description, $contenu, $date, $image, $archiver, $categoriId, $userId, $tags)
+    public static function createWiki($titre, $description, $contenu, $image, $archiver, $categoriId, $userId, $tags)
     { 
         try {
             $conx = Database::connect();
 
-         $requete = "INSERT INTO `wiki`(`titre`, `description`, `contenu`, `date_creation`, `image`, `archiver`, `categorie_id`, `user_id`) 
-                    VALUES (:titre, :descrip, :contenu, CURRENT_TIMESTAMP, img, archive, :Id_catg, :Id_user)";
+         $requete = "INSERT INTO `wiki`(`titre`, `description`, `contenu`, `image`, `archiver`, `categorie_id`, `user_id`) VALUES (? , ? , ? , ? , ? , ? , ?)";
 
           $stmt = $conx->prepare($requete);
-          $stmt->bindParam(':titre', $titre);
-          $stmt->bindParam(':descrp', $description);
-          $stmt->bindParam(':contenu', $contenu);
-          $stmt->bindParam(':image', $image);
-          $stmt->bindParam(':archive', $archiver);
-          $stmt->bindParam(':Id_catg', $categoriId);
-          $stmt->bindParam(':Id_user', $userId);
+          $result=$stmt->execute([$titre , $description , $contenu , $image , $archiver , $categoriId , $userId]);
           $lastInsertId = $conx->lastInsertId();
-          $result=$stmt->execute();
          
          if ($result) 
          {
@@ -61,6 +53,7 @@ class WikiDAO
             $stmt=$conx->prepare($requete2);
             $stmt->bindParam(':id_tag', $tags);
             $stmt->bindParam(':id_wiki', $lastInsertId);
+            $stmt->execute();
          }else {
             echo "Erreur d'insertion de wiki2";
          }

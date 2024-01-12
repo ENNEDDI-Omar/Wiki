@@ -15,7 +15,7 @@ class CategorieController
             $categorie = $_POST['categorie'];
 
             CategorieModel::addCategories($categorie);
-            header('location: ../../views/user/dash.php');
+            header('location: ../../views/admin/Admindash.php');
         }else {
             echo "Erreur d'insertion de catg";
         }
@@ -28,7 +28,7 @@ class CategorieController
             $NomCatg = $_POST['nom'];
 
             CategorieModel::editCategorie($id, $NomCatg);
-            header('location: ../../views/user/dash.php');
+            header('location: ../../views/admin/Admindash.php');
         }else {
             echo "Erreur de l'update de catgs";
         }
@@ -39,7 +39,7 @@ class CategorieController
             $id = base64_decode($_GET['id']);
 
             CatégorieDAO::deleteCategorie($id);
-            header('location: ../../views/user/dash.com');
+            header('location: ../../views/admin/Admindash.php');
         }else {
             echo "Erreur de Suppression";
         }
@@ -52,5 +52,9 @@ class CategorieController
     
 }
 
+$ctg = new CategorieController;
+$ctg->addCategorie();
+$ctg->editCategorie();
+$ctg->deleteCategotie();
 
 ?>
