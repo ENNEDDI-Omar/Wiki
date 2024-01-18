@@ -27,9 +27,13 @@ class UserDAO
             $stmt->bindParam(':role_id', $role_id); 
             
             $stmt->execute();
+
+            return true;
+
     } catch (\PDOException $e) 
     {
         echo "Erreur:" . $e->getMessage();    
+        return false;
     }
   }
 
@@ -39,11 +43,10 @@ class UserDAO
     {
         $conx = Database::connect();
 
-        $requete = "SELECT * FROM `user` WHERE `email`=':email'";
+        $requete = "SELECT * FROM `user` WHERE `email`= ?";
 
         $stmt = $conx->prepare($requete);
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
+        $stmt->execute([$email]);
 
         $user = $stmt->fetch(\PDO::FETCH_ASSOC);
         return $user;

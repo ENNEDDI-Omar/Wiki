@@ -2,6 +2,7 @@
 
 namespace Myapp\controller;
 
+use Exception;
 use Myapp\DAO\CatégorieDAO;
 use Myapp\model\CategorieModel;
 
@@ -11,13 +12,15 @@ class CategorieController
 {
     public function addCategorie()
     {
-        if (isset($_POST['addCatg'])) {
-            $categorie = $_POST['categorie'];
-
-            CategorieModel::addCategories($categorie);
-            header('location: ../../views/admin/Admindash.php');
-        }else {
-            echo "Erreur d'insertion de catg";
+        try{
+            if (isset($_POST['addCatg'])) {
+                $categorie = $_POST['categorie'];
+    
+                CategorieModel::addCategories($categorie);
+                header('location: ../../views/admin/Admindash.php');
+            }
+        }catch(Exception $r){
+            echo $r->getMessage();
         }
     }
 
@@ -29,19 +32,15 @@ class CategorieController
 
             CategorieModel::editCategorie($id, $NomCatg);
             header('location: ../../views/admin/Admindash.php');
-        }else {
-            echo "Erreur de l'update de catgs";
         }
     }
     public function deleteCategotie()
     {
-        if (isset($_POST['deleteC'])) {
-            $id = base64_decode($_GET['id']);
+        if (isset($_GET['idd'])) {
+            $id = base64_decode($_GET['idd']);
 
             CatégorieDAO::deleteCategorie($id);
             header('location: ../../views/admin/Admindash.php');
-        }else {
-            echo "Erreur de Suppression";
         }
     }
     public static function showCategories()

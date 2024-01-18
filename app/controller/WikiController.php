@@ -5,7 +5,7 @@ use Myapp\model\WikiModel;
 
 require '../../vendor/autoload.php';
 
-session_start();
+// session_start();
 
 class WikiController
 {

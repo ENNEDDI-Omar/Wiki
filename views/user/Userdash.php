@@ -1,3 +1,17 @@
+<?php
+require '../../vendor/autoload.php';
+use Myapp\controller\AuthController;
+
+
+
+session_start();
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 2) {
+    echo "Debug: role_admin is not set or not equal to 1"; // Debug output
+    header('Location: ../auth/login.php');
+    exit; 
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

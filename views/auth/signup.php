@@ -7,7 +7,9 @@
     <title>Document</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <!-- <script src="../../public/js/validation.js" defer></script> -->
+    <script>src</script>
 </head>
 
 <body>
@@ -27,7 +29,7 @@
                         Let’s get you all set up so you can verify your personal account and begin setting up your profile.
                     </p>
 
-                    <form class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2" method="POST" action="../../app/controller/AuthController.php" enctype="multipart/form-data">
+                    <form class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2" name="X" method="POST" action="../../app/controller/AuthController.php" enctype="multipart/form-data">
                         <div>
                             <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Nom</label>
                             <input type="text" placeholder="John" name="Nom" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />

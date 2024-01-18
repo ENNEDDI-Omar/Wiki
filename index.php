@@ -33,10 +33,10 @@
                     <a href="#" class="text-gray-500 font-semibold hover:text-green-600"> Contact </a>
                 </li>
                 <li class="px-2 md:px-4 hidden md:block">
-                    <a href="#" class="text-gray-500 font-semibold hover:text-green-600"> Login </a>
+                    <a href="views/auth/login.php" class="text-gray-500 font-semibold hover:text-green-600"> Login </a>
                 </li>
                 <li class="px-2 md:px-4 hidden md:block">
-                    <a href="#" class="text-gray-500 font-semibold hover:text-green-600"> Register </a>
+                    <a href="views/auth/signup.php" class="text-gray-500 font-semibold hover:text-green-600"> Register </a>
                 </li>
             </ul>
 

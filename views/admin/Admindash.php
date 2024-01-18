@@ -1,11 +1,13 @@
 <?php
+session_start();
 require '../../vendor/autoload.php';
+   
 
 use Myapp\controller\AuthController;
 use Myapp\controller\CategorieController;
 use Myapp\controller\TagController;
 use Myapp\controller\WikiController;
-
+        
 
 $wikis = WikiController::listWikis();
  
@@ -14,6 +16,14 @@ $tags = TagController::showTags();
 $ctgs = CategorieController::showCategories();
 
 $users = AuthController::getUsers();
+
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 1) {
+    echo "Debug: role_admin is not set or not equal to 1"; // Debug output
+    header('Location: ../auth/login.php');
+    exit; 
+}
+    
+
 
 ?>
 
@@ -50,6 +60,7 @@ $users = AuthController::getUsers();
                     <a href="#" class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0">Home</a>
                     <a href="#" class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0">Blog</a>
                     <a href="#" class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0">About us</a>
+                    <a href="../auth/signout.php" class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0">Logout</a>
                 </div>
             </div>
         </nav>
@@ -162,7 +173,7 @@ $users = AuthController::getUsers();
                                         </a>
 
                                         <!-- Lien pour la première icône (éditer) -->
-                                        <a href="#" class="text-green-600 hover:text-green-500 text-white font-semibold text-sm rounded-full px-2 py-1 ml-1">
+                                        <a href="../../app/controller/CategorieController.php?idd=<?= base64_encode($catg['id']) ?>" class="text-green-600 hover:text-green-500 text-white font-semibold text-sm rounded-full px-2 py-1 ml-1">
                                             <svg class="w-4 h-4 text-green-600 hover:text-green-400 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                                             </svg>
@@ -227,5 +238,8 @@ $users = AuthController::getUsers();
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 </body>
+  
+
+
 
 </html>
